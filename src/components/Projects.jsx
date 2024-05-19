@@ -75,6 +75,7 @@ const Projects = () => {
               </h6>
               <a
                 href={project.link}
+                target="_blank"
                 className="self-start p-2 text-sm rounded-lg bg-pink-500 hover:bg-pink-400 transition-all text-white"
               >
                 Visit Website

@@ -21,7 +21,7 @@ const Hero = () => {
             </div>
           </div>
           <div className="flex flex-col justify-center gap-y-4 max-w-xl sm:items-center lg:items-start">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold xs:text-center">
               Reinald John Vibar
             </h1>
             <h2 className="text-lg md:text-xl font-bold">

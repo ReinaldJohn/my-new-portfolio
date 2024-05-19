@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +29,9 @@ const Navbar = () => {
       <nav>
         <div className="container mx-auto flex justify-center drop-shadow-xl border-b border-white">
           <div className="w-full flex flex-wrap justify-between items-center p-4">
-            <div className="text-lg font-semibold">Reinald John Vibar</div>
+            <div className="">
+              <img src={logo} width={200} height={100} alt="" />
+            </div>
             <div className="hidden lg:block">
               <ul className="flex flex-row gap-8 hover:underline-offset-4">
                 <li>

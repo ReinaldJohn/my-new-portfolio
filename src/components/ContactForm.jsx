@@ -4,11 +4,43 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ContactForm = () => {
+  const [formErrors, setFormErrors] = useState({});
+
   const [loading, setLoading] = useState(false);
   const formRef = useRef(null);
 
   const handleContactFormSubmit = (e) => {
     e.preventDefault();
+    const formData = new FormData(e.target);
+    const formValues = Object.fromEntries(formData.entries());
+
+    const validateEmail = (email) => {
+      const re = /\S+@\S+\.\S+/;
+      return re.test(email);
+    };
+
+    // Check for empty required fields
+    const errors = {};
+    Object.entries(formValues).forEach(([key, value]) => {
+      if (!value.trim()) {
+        errors[key] = `${
+          key.charAt(0).toUpperCase() + key.slice(1)
+        } is required.`;
+      } else if (key === "email" && !validateEmail(value)) {
+        errors[key] = "Invalid Email.";
+      } else {
+        delete errors[key]; // Remove error message if field is filled
+      }
+    });
+
+    // Update formErrors state
+    setFormErrors(errors);
+
+    // Check if there are any errors
+    if (Object.keys(errors).length > 0) {
+      return;
+    }
+
     const lastSubmissionTime = localStorage.getItem("lastSubmissionTime");
     const now = new Date().getTime();
 
@@ -67,9 +99,22 @@ const ContactForm = () => {
                 type="text"
                 name="name"
                 id="name"
-                className="border border-gray rounded-md p-2 outline-none focus:ring-2 focus:ring-blue-500 w-full"
+                className={`border border-gray rounded-md p-2 outline-none focus:ring-2 focus:ring-blue-500 w-full ${
+                  formErrors.name ? "border-red-500" : ""
+                }`}
                 placeholder="Enter your name"
+                required
+                onChange={(e) => {
+                  const value = e.target.value.trim();
+                  setFormErrors((prevErrors) => ({
+                    ...prevErrors,
+                    name: value ? "" : "Name is required.",
+                  }));
+                }}
               />
+              {formErrors.name && (
+                <p className="text-red-500">{formErrors.name}</p>
+              )}
             </div>
             <div className="flex flex-col">
               <label htmlFor="email" className="text-lg font-semibold">
@@ -79,9 +124,22 @@ const ContactForm = () => {
                 type="email"
                 name="email"
                 id="email"
-                className="border border-gray rounded-md p-2 outline-none focus:ring-2 focus:ring-blue-500 w-full"
+                className={`border border-gray rounded-md p-2 outline-none focus:ring-2 focus:ring-blue-500 w-full ${
+                  formErrors.email ? "border-red-500" : ""
+                }`}
                 placeholder="Enter your email"
+                required
+                onChange={(e) => {
+                  const value = e.target.value.trim();
+                  setFormErrors((prevErrors) => ({
+                    ...prevErrors,
+                    email: value ? "" : "Email is required.",
+                  }));
+                }}
               />
+              {formErrors.email && (
+                <p className="text-red-500">{formErrors.email}</p>
+              )}
             </div>
             <div className="flex flex-col">
               <label htmlFor="message" className="text-lg font-semibold">
@@ -91,10 +149,23 @@ const ContactForm = () => {
                 name="message"
                 id="message"
                 rows="4"
-                className="border border-gray rounded-md p-2 outline-none focus:ring-2 focus:ring-blue-500 w-full"
+                className={`border border-gray rounded-md p-2 outline-none focus:ring-2 focus:ring-blue-500 w-full ${
+                  formErrors.message ? "border-red-500" : ""
+                }`}
                 placeholder="Enter your message"
                 style={{ resize: "none" }}
+                required
+                onChange={(e) => {
+                  const value = e.target.value.trim();
+                  setFormErrors((prevErrors) => ({
+                    ...prevErrors,
+                    message: value ? "" : "Message is required.",
+                  }));
+                }}
               ></textarea>
+              {formErrors.message && (
+                <p className="text-red-500">{formErrors.message}</p>
+              )}
             </div>
 
             <button
