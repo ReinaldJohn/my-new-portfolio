@@ -21,14 +21,14 @@ const techStackImages = [
 
 const TechStack = () => {
   return (
-    <section className="lg:p-24 sm:p-12 flex justify-center items-center mb-2 sm:mb-8">
-      <div className="flex justify-center">
+    <section id="techstacks">
+      <div className="flex flex-col justify-center items-center gap-8 p-4 mt-8">
         <div className="flex flex-col lg:flex-row gap-8 max-w-6xl">
           <div className="flex flex-col gap-8 max-w-6xl w-full">
             <h6 className="text-lg md:text-xl text-gray-400 text-center">
               Current Tech Stack
             </h6>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-center">
+            <div className="grid grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-center">
               {techStackImages.map((image, i) => (
                 <div
                   key={i}

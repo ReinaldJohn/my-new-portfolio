@@ -10,12 +10,9 @@ const AboutMe = () => {
   };
 
   return (
-    <section
-      id="about"
-      className="lg:p-24 sm:p-12 flex justify-center items-center"
-    >
-      <div className="flex justify-center w-full">
-        <div className="flex flex-col lg:flex-row gap-8 p-8 max-w-6xl flex-col-reverse">
+    <section id="about">
+      <div className="flex flex-col justify-center items-center gap-8 p-4 mt-8">
+        <div className="flex lg:flex-row gap-8 p-8 max-w-6xl flex-col-reverse">
           <div className="flex flex-col justify-center sm:items-center lg:items-start gap-y-4 max-w-xl">
             <h6 className="text-lg md:text-xl text-center lg:text-left text-gray-400">
               About me
