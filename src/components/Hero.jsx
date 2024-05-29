@@ -8,7 +8,7 @@ const images = [
 
 const Hero = () => {
   return (
-    <section className="p-24 flex justify-center items-center">
+    <section className="lg:p-24 sm:p-12 flex justify-center items-center">
       <div className="flex justify-center max-w-6xl">
         <div className="flex flex-col items-center lg:flex-row gap-8 p-8 max-w-6xl">
           <div className="flex items-center justify-center lg:justify-start flex-shrink-0">
@@ -20,8 +20,8 @@ const Hero = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col justify-center gap-y-4 max-w-xl sm:items-center lg:items-start">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold xs:text-center">
+          <div className="flex flex-col justify-center gap-4 max-w-xl text-center lg:text-left">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
               Reinald John Vibar
             </h1>
             <h2 className="text-lg md:text-xl font-bold">

@@ -10,17 +10,22 @@ const AboutMe = () => {
   };
 
   return (
-    <section id="about" className="p-24 flex justify-center items-center">
+    <section
+      id="about"
+      className="lg:p-24 sm:p-12 flex justify-center items-center"
+    >
       <div className="flex justify-center w-full">
-        <div className="flex flex-col lg:flex-row gap-8 p-8 max-w-6xl sm:flex-col-reverse">
+        <div className="flex flex-col lg:flex-row gap-8 p-8 max-w-6xl flex-col-reverse">
           <div className="flex flex-col justify-center sm:items-center lg:items-start gap-y-4 max-w-xl">
-            <h6 className="text-lg md:text-xl sm:text-center lg:text-start text-gray-400">
+            <h6 className="text-lg md:text-xl text-center lg:text-left text-gray-400">
               About me
             </h6>
-            <h3 className="text-2xl sm:text-center md:text-3xl lg:text-4xl lg:text-start font-bold">
+
+            <h3 className="text-2xl text-center md:text-3xl lg:text-4xl lg:text-left font-bold">
               Experienced Full Stack PHP Developer based from the Philippines
             </h3>
-            <p className="text-sm sm:text-center lg:text-start lg:text-lg leading-relaxed">
+
+            <p className="text-sm text-center lg:text-left lg:text-lg leading-relaxed">
               I am a full-stack web developer skilled in Laravel, ReactJS, PHP,
               MySQL, TailwindCSS, Bootstrap, and WordPress (Elementor). I create
               dynamic, user-friendly web applications with a focus on both
@@ -28,6 +33,7 @@ const AboutMe = () => {
               appealing solutions through team collaboration and clean,
               efficient code.
             </p>
+
             <button
               onClick={handleViewCV}
               className="sm:self-center lg:self-start p-3 mt-4 rounded-full bg-sky-500 hover:bg-sky-400 transition-all"
@@ -35,6 +41,7 @@ const AboutMe = () => {
               Open My CV
             </button>
           </div>
+
           <div className="flex justify-center sm:justify-center lg:justify-end flex-shrink-0">
             <div className="w-96 h-124 flex items-center justify-center">
               <img

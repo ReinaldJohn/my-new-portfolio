@@ -51,7 +51,10 @@ const projInfo = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="p-24 flex justify-center items-center">
+    <section
+      id="projects"
+      className="lg:p-24 sm:p-12 flex justify-center items-center"
+    >
       <div className="flex flex-col justify-center items-center gap-8">
         <h6 className="text-lg md:text-xl text-gray-400 text-center">
           Projects I&apos;ve Built

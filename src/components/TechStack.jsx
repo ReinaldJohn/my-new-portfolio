@@ -21,7 +21,7 @@ const techStackImages = [
 
 const TechStack = () => {
   return (
-    <section className="p-24 flex justify-center items-center">
+    <section className="lg:p-24 sm:p-12 flex justify-center items-center mb-2 sm:mb-8">
       <div className="flex justify-center">
         <div className="flex flex-col lg:flex-row gap-8 max-w-6xl">
           <div className="flex flex-col gap-8 max-w-6xl w-full">
